@@ -1,10 +1,20 @@
+/** Michael Peterson
+ *  11/03/2017
+ *  Assn 09: TDD Tutorial Walkthrough
+ *  Gameboard SimpleGameBoard Class
+ *  https://github.com/MKP9
+ *  https://travis-ci.org/
+ *  Create a new Java project incorporating jUnit.  Using the packet provided walk
+ *  through the Test Driven Development (TDD) for a simplified game application.
+ */
+
 package simpleGameBoard;
 
 import cell.Cell;
-import gameboard.gameBoard;
+import gameboard.GameBoard;
 import propertyCell.PropertyCell;
 
-public class SimpleGameBoard extends gameBoard {
+public class SimpleGameBoard extends GameBoard {
 
     public SimpleGameBoard() {
 

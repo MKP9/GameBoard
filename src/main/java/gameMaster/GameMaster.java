@@ -1,6 +1,17 @@
+/** Michael Peterson
+ *  11/03/2017
+ *  Assn 09: TDD Tutorial Walkthrough
+ *  Gameboard GameMaster Class
+ *  https://github.com/MKP9
+ *  https://travis-ci.org/
+ *  Create a new Java project incorporating jUnit.  Using the packet provided walk
+ *  through the Test Driven Development (TDD) for a simplified game application.
+ */
+
 package gameMaster;
 
 import cell.Cell;
+import gameboard.GameBoard;
 import player.Player;
 
 import java.util.ArrayList;
@@ -8,7 +19,7 @@ import java.util.ArrayList;
 public class GameMaster {
 
     private static GameMaster singleton;
-    private gameboard.gameBoard gameBoard;
+    private GameBoard gameBoard;
     private ArrayList players;
 
     public static GameMaster instance() {
@@ -20,12 +31,12 @@ public class GameMaster {
         return singleton;
     }
 
-    public void setGameBoard(gameboard.gameBoard board) {
+    public void setGameBoard(GameBoard board) {
 
         this.gameBoard = board;
     }
 
-    public gameboard.gameBoard getGameBoard() {
+    public GameBoard getGameBoard() {
 
         return this.gameBoard;
     }
@@ -58,7 +69,5 @@ public class GameMaster {
         int newIndex = (oldIndex + diceRoll) % gameBoard.getCellNumber();
         Cell newPosition = gameBoard.getCell(newIndex);
         player.setPosition(newPosition);
-
-
     }
 }

@@ -1,3 +1,13 @@
+/** Michael Peterson
+ *  11/03/2017
+ *  Assn 09: TDD Tutorial Walkthrough
+ *  Gameboard GameMaster Class
+ *  https://github.com/MKP9
+ *  https://travis-ci.org/
+ *  Create a new Java project incorporating jUnit.  Using the packet provided walk
+ *  through the Test Driven Development (TDD) for a simplified game application.
+ */
+
 package gameMasterTest;
 
 import cell.Cell;
@@ -10,6 +20,13 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertSame;
 
+/**  GameMasterTest Class will use jUnit to test for a single instance of a class,
+ *   test for number of players at game initialization,  test player movements, and
+ *   to test when a player reaches the end of the game board, that player cycles
+ *   around the game board.
+ *   @author Michael Peterson *Not original code author*
+ *   @version 1.0
+ */
 public class GameMasterTest {
 
     GameMaster master;
@@ -20,6 +37,12 @@ public class GameMasterTest {
         master.setGameBoard(new SimpleGameBoard());
     }
 
+    /** Test for a single instance of the GameMaster class.
+     *  assertNotNull: this will assert that an object is not null.  This will test
+     *                 that a single instance of the GameMaster is created.
+     *  assertSame: this will assert that two objects refer to the same object.
+     *              This tests that two instances of GameMaster are the same.
+     */
     @Test
     public void testSingleton() {
 
@@ -29,9 +52,14 @@ public class GameMasterTest {
         GameMaster instance2 = GameMaster.instance();
         assertNotNull(instance2);
         assertSame(instance1, instance2);
-
     }
 
+    /** Test for number of players at game initialization
+     *  assertEquals: assert that two objects are equal. In this case we test for
+     *                number of players at game start.
+     *  assertSame: this will assert that two objects refer to the same object.  This
+     *              will test that all players start at 'Go' at game initialization.
+     */
     @Test
     public void testPlayerIntit() {
 
@@ -49,6 +77,10 @@ public class GameMasterTest {
         }
     }
 
+    /** Test for player movements matching dice roll.
+     *  assertEquals: assert that two objects are equal.  This will test a
+     *                for a player movements per dice roll.
+     */
     @Test
     public void testMovePlayerSimple() {
 
@@ -62,6 +94,12 @@ public class GameMasterTest {
         assertEquals("Green 2", player.getPosition().getName());
     }
 
+    /** Test when a player reaches the end of the game board, that player cycles
+     *  around the game board.
+     *  assertEquals: assert that two objects are equal.  This test will check if a
+     *                player reaches the end of the game board on a dice roll and
+     *                continues around the board into a new cycle.
+     */
     @Test
     public void testMovePlayerCycle() {
 
